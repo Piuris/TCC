@@ -1,0 +1,20 @@
+# Versões fixadas para reprodutibilidade (Python 3.12)
+numpy==2.1.3
+pandas==2.2.3
+scikit-learn==1.5.2
+imbalanced-learn==0.12.4
+xgboost==2.1.3
+lightgbm==4.5.0
+shap==0.46.0
+lime==0.2.0.1
+matplotlib==3.9.2
+seaborn==0.13.2
+joblib==1.4.2
+pyyaml==6.0.2
+fastapi==0.115.5
+uvicorn==0.32.1
+pydantic==2.10.2
+httpx==0.28.0
+pytest==8.3.3
+jupyter==1.1.1
+kaggle==1.6.17

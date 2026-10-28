@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/*.csv
+data/_*/
+artifacts/*.joblib
+.ipynb_checkpoints/
+*.egg-info/
+# Predições e partições salvas pelos experimentos (~60 MB, binárias, mudam a cada treino).
+# Ficam só na máquina local; o restante de reports/ (tabelas, JSON, figuras, logs) é versionado.
+reports/**/*.npz

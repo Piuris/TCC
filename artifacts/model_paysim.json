@@ -1,0 +1,159 @@
+{
+  "kind": "paysim",
+  "dataset": "paysim[20%]",
+  "model": "random_forest",
+  "balancing": "class_weight",
+  "params": {
+    "clf__n_estimators": 300,
+    "clf__min_samples_leaf": 2,
+    "clf__max_features": 0.5,
+    "clf__max_depth": 8
+  },
+  "members": null,
+  "threshold": 1.0,
+  "threshold_policy": {
+    "scenario": "moderado",
+    "fn": 100.0,
+    "fp": 5.0,
+    "fn_use_amount": false
+  },
+  "undersampling_beta": null,
+  "calibration": {
+    "method": "isotonic",
+    "inner_cv_brier": {
+      "none": 3.792068302286073e-05,
+      "sigmoid": 2.9883893587945645e-05,
+      "isotonic": 2.7670114067261595e-05
+    },
+    "test_raw": {
+      "brier": 7.06956879714367e-05,
+      "log_loss": 0.0007924144843090628,
+      "ece": 0.0004998404546190074,
+      "auc_pr": 0.9925449307245059
+    },
+    "test_calibrated": {
+      "brier": 4.2821900886655025e-05,
+      "log_loss": 0.00038387330326213406,
+      "ece": 1.8660655605329215e-05,
+      "auc_pr": 0.9908492290691605
+    }
+  },
+  "input_columns": [
+    "step",
+    "type",
+    "amount",
+    "oldbalanceOrg",
+    "newbalanceOrig",
+    "oldbalanceDest",
+    "newbalanceDest",
+    "nameDest"
+  ],
+  "dataset_info": {
+    "name": "paysim[20%]",
+    "kind": "paysim",
+    "n_rows": 554082,
+    "n_features": 8,
+    "n_fraud": 1643,
+    "fraud_rate_pct": 0.2965,
+    "duplicates_removed": 0,
+    "duplicate_frauds_removed": 0
+  },
+  "train_seconds": 38.28865050000604,
+  "test_metrics": {
+    "threshold": 1.0,
+    "precision": 1.0,
+    "recall": 0.9878419452887538,
+    "f1": 0.9938837920489296,
+    "mcc": 0.9938843915241027,
+    "auc_roc": 0.9969400739774185,
+    "auc_pr": 0.9908492290691605,
+    "accuracy": 0.9999639044550926,
+    "brier": 4.2821900886625684e-05,
+    "tp": 325,
+    "fp": 0,
+    "tn": 110488,
+    "fn": 4,
+    "fpr": 0.0
+  },
+  "test_cost": {
+    "cost_config": {
+      "fn": 100.0,
+      "fp": 5.0,
+      "fn_use_amount": false
+    },
+    "threshold": 1.0,
+    "cost": 400.0,
+    "cost_approve_all": 32900.0,
+    "cost_block_all": 552440.0,
+    "savings_vs_approve_all_pct": 98.78419452887537
+  },
+  "test_cost_all_scenarios": {
+    "conservador": {
+      "cost_config": {
+        "fn": 100.0,
+        "fp": 10.0,
+        "fn_use_amount": false
+      },
+      "threshold": 1.0,
+      "cost": 400.0,
+      "cost_approve_all": 32900.0,
+      "cost_block_all": 1104880.0,
+      "savings_vs_approve_all_pct": 98.78419452887537
+    },
+    "moderado": {
+      "cost_config": {
+        "fn": 100.0,
+        "fp": 5.0,
+        "fn_use_amount": false
+      },
+      "threshold": 1.0,
+      "cost": 400.0,
+      "cost_approve_all": 32900.0,
+      "cost_block_all": 552440.0,
+      "savings_vs_approve_all_pct": 98.78419452887537
+    },
+    "agressivo": {
+      "cost_config": {
+        "fn": 100.0,
+        "fp": 1.0,
+        "fn_use_amount": false
+      },
+      "threshold": 0.03571428571428571,
+      "cost": 433.0,
+      "cost_approve_all": 32900.0,
+      "cost_block_all": 110488.0,
+      "savings_vs_approve_all_pct": 98.6838905775076
+    },
+    "valor_transacao": {
+      "cost_config": {
+        "fn": 25.0,
+        "fp": 5.0,
+        "fn_use_amount": true
+      },
+      "threshold": 0.0005136106831022085,
+      "cost": 357711.83999999997,
+      "cost_approve_all": 475453302.21000004,
+      "cost_block_all": 552440.0,
+      "savings_vs_approve_all_pct": 99.92476404342186
+    }
+  },
+  "latency": {
+    "latency_mean_ms": 16.912256667856127,
+    "latency_p50_ms": 16.67004998307675,
+    "latency_p95_ms": 17.31354998482857,
+    "latency_p99_ms": 18.93683098780449,
+    "batch_throughput_tps": 310999.42758653197
+  },
+  "versions": {
+    "python": "3.12.10",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.5.2",
+    "imbalanced-learn": "0.12.4",
+    "xgboost": "2.1.3",
+    "lightgbm": "4.5.0",
+    "shap": "0.46.0"
+  },
+  "seed": 42,
+  "created_at": "2026-10-19T00:32:23.177823+00:00"
+}

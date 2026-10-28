@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: fraude-tcc
+Version: 1.0.0
+Summary: TCC IFRS Canoas — detecção de fraudes em transações financeiras com machine learning
+Author: João Vitor Pires
+Requires-Python: >=3.10

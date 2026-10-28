@@ -1,0 +1,183 @@
+{
+  "kind": "creditcard",
+  "dataset": "ulb_creditcard",
+  "model": "xgboost",
+  "balancing": "class_weight",
+  "params": {
+    "clf__colsample_bytree": 0.6911740650167767,
+    "clf__learning_rate": 0.06358398347237385,
+    "clf__max_depth": 6,
+    "clf__min_child_weight": 1,
+    "clf__n_estimators": 432,
+    "clf__subsample": 0.7219125032632117
+  },
+  "members": null,
+  "threshold": 0.0345108647924632,
+  "threshold_policy": {
+    "scenario": "moderado",
+    "fn": 100.0,
+    "fp": 5.0,
+    "fn_use_amount": false
+  },
+  "undersampling_beta": null,
+  "calibration": {
+    "method": "sigmoid",
+    "inner_cv_brier": {
+      "none": 0.0003856494737326748,
+      "sigmoid": 0.0003663185368989397,
+      "isotonic": 0.00037204015995645045
+    },
+    "test_raw": {
+      "brier": 0.0005379805617614624,
+      "log_loss": 0.003830128294910877,
+      "ece": 0.0004913081861703541,
+      "auc_pr": 0.8392798823870276
+    },
+    "test_calibrated": {
+      "brier": 0.0004966087738711278,
+      "log_loss": 0.0029190572514934416,
+      "ece": 0.0002376581726192562,
+      "auc_pr": 0.8392798823870276
+    }
+  },
+  "input_columns": [
+    "Time",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7",
+    "V8",
+    "V9",
+    "V10",
+    "V11",
+    "V12",
+    "V13",
+    "V14",
+    "V15",
+    "V16",
+    "V17",
+    "V18",
+    "V19",
+    "V20",
+    "V21",
+    "V22",
+    "V23",
+    "V24",
+    "V25",
+    "V26",
+    "V27",
+    "V28",
+    "Amount"
+  ],
+  "dataset_info": {
+    "name": "ulb_creditcard",
+    "kind": "creditcard",
+    "n_rows": 275663,
+    "n_features": 30,
+    "n_fraud": 473,
+    "fraud_rate_pct": 0.1716,
+    "duplicates_removed": 9144,
+    "duplicate_frauds_removed": 19
+  },
+  "train_seconds": 3.1442865999997593,
+  "test_metrics": {
+    "threshold": 0.0345108647924632,
+    "precision": 0.7669902912621359,
+    "recall": 0.8315789473684211,
+    "f1": 0.797979797979798,
+    "mcc": 0.7982711746306911,
+    "auc_roc": 0.9804286416466328,
+    "auc_pr": 0.8392798823870276,
+    "accuracy": 0.99927448170787,
+    "brier": 0.0004966087738711278,
+    "tp": 79,
+    "fp": 24,
+    "tn": 55014,
+    "fn": 16,
+    "fpr": 0.00043606235691703914
+  },
+  "test_cost": {
+    "cost_config": {
+      "fn": 100.0,
+      "fp": 5.0,
+      "fn_use_amount": false
+    },
+    "threshold": 0.0345108647924632,
+    "cost": 1720.0,
+    "cost_approve_all": 9500.0,
+    "cost_block_all": 275190.0,
+    "savings_vs_approve_all_pct": 81.89473684210526
+  },
+  "test_cost_all_scenarios": {
+    "conservador": {
+      "cost_config": {
+        "fn": 100.0,
+        "fp": 10.0,
+        "fn_use_amount": false
+      },
+      "threshold": 0.1064672522997269,
+      "cost": 2060.0,
+      "cost_approve_all": 9500.0,
+      "cost_block_all": 550380.0,
+      "savings_vs_approve_all_pct": 78.3157894736842
+    },
+    "moderado": {
+      "cost_config": {
+        "fn": 100.0,
+        "fp": 5.0,
+        "fn_use_amount": false
+      },
+      "threshold": 0.0345108647924632,
+      "cost": 1720.0,
+      "cost_approve_all": 9500.0,
+      "cost_block_all": 275190.0,
+      "savings_vs_approve_all_pct": 81.89473684210526
+    },
+    "agressivo": {
+      "cost_config": {
+        "fn": 100.0,
+        "fp": 1.0,
+        "fn_use_amount": false
+      },
+      "threshold": 0.005591970847291182,
+      "cost": 1418.0,
+      "cost_approve_all": 9500.0,
+      "cost_block_all": 55038.0,
+      "savings_vs_approve_all_pct": 85.07368421052631
+    },
+    "valor_transacao": {
+      "cost_config": {
+        "fn": 25.0,
+        "fp": 5.0,
+        "fn_use_amount": true
+      },
+      "threshold": 0.07553313728908763,
+      "cost": 3739.56,
+      "cost_approve_all": 14760.99,
+      "cost_block_all": 275190.0,
+      "savings_vs_approve_all_pct": 74.6659268788882
+    }
+  },
+  "latency": {
+    "latency_mean_ms": 2.2672253321312987,
+    "latency_p50_ms": 2.1968499931972474,
+    "latency_p95_ms": 2.584315001149662,
+    "latency_p99_ms": 3.2221420266432683,
+    "batch_throughput_tps": 563828.1674694781
+  },
+  "versions": {
+    "python": "3.12.10",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.5.2",
+    "imbalanced-learn": "0.12.4",
+    "xgboost": "2.1.3",
+    "lightgbm": "4.5.0",
+    "shap": "0.46.0"
+  },
+  "seed": 42,
+  "created_at": "2026-10-18T19:05:17.707696+00:00"
+}

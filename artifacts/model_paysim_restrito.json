@@ -1,0 +1,160 @@
+{
+  "kind": "paysim_restrito",
+  "dataset": "paysim_sem_saldo[20%]",
+  "model": "mlp",
+  "balancing": "undersample",
+  "params": {
+    "clf__alpha": 3.5498788321965036e-05,
+    "clf__hidden_layer_sizes": [
+      128,
+      64
+    ],
+    "clf__learning_rate_init": 0.0016722697006183683,
+    "sampler__sampling_strategy": 0.01
+  },
+  "members": null,
+  "threshold": 0.07142857142857142,
+  "threshold_policy": {
+    "scenario": "moderado",
+    "fn": 100.0,
+    "fp": 5.0,
+    "fn_use_amount": false
+  },
+  "undersampling_beta": null,
+  "calibration": {
+    "method": "isotonic",
+    "inner_cv_brier": {
+      "none": 0.0010654043575889856,
+      "sigmoid": 0.0009811123725763362,
+      "isotonic": 0.0009806085536730891
+    },
+    "test_raw": {
+      "brier": 0.0008772388674961198,
+      "log_loss": 0.005809393661293851,
+      "ece": 0.000821711886450742,
+      "auc_pr": 0.7999213740836472
+    },
+    "test_calibrated": {
+      "brier": 0.0009454734035678351,
+      "log_loss": 0.005813027651663776,
+      "ece": 0.0005013487481628979,
+      "auc_pr": 0.7920023470778522
+    }
+  },
+  "input_columns": [
+    "step",
+    "type",
+    "amount",
+    "oldbalanceDest",
+    "newbalanceDest",
+    "nameDest"
+  ],
+  "dataset_info": {
+    "name": "paysim_sem_saldo[20%]",
+    "kind": "paysim_restrito",
+    "n_rows": 554082,
+    "n_features": 6,
+    "n_fraud": 1643,
+    "fraud_rate_pct": 0.2965,
+    "duplicates_removed": 0,
+    "duplicate_frauds_removed": 0
+  },
+  "train_seconds": 4.2462988999905065,
+  "test_metrics": {
+    "threshold": 0.07142857142857142,
+    "precision": 0.8591065292096219,
+    "recall": 0.7598784194528876,
+    "f1": 0.8064516129032258,
+    "mcc": 0.8074372080634671,
+    "auc_roc": 0.9526892191348291,
+    "auc_pr": 0.7920023470778522,
+    "accuracy": 0.9989171336527789,
+    "brier": 0.0009454734035667625,
+    "tp": 250,
+    "fp": 41,
+    "tn": 110447,
+    "fn": 79,
+    "fpr": 0.0003710810223734704
+  },
+  "test_cost": {
+    "cost_config": {
+      "fn": 100.0,
+      "fp": 5.0,
+      "fn_use_amount": false
+    },
+    "threshold": 0.07142857142857142,
+    "cost": 8105.0,
+    "cost_approve_all": 32900.0,
+    "cost_block_all": 552440.0,
+    "savings_vs_approve_all_pct": 75.36474164133739
+  },
+  "test_cost_all_scenarios": {
+    "conservador": {
+      "cost_config": {
+        "fn": 100.0,
+        "fp": 10.0,
+        "fn_use_amount": false
+      },
+      "threshold": 0.17894736842105263,
+      "cost": 8870.0,
+      "cost_approve_all": 32900.0,
+      "cost_block_all": 1104880.0,
+      "savings_vs_approve_all_pct": 73.03951367781156
+    },
+    "moderado": {
+      "cost_config": {
+        "fn": 100.0,
+        "fp": 5.0,
+        "fn_use_amount": false
+      },
+      "threshold": 0.07142857142857142,
+      "cost": 8105.0,
+      "cost_approve_all": 32900.0,
+      "cost_block_all": 552440.0,
+      "savings_vs_approve_all_pct": 75.36474164133739
+    },
+    "agressivo": {
+      "cost_config": {
+        "fn": 100.0,
+        "fp": 1.0,
+        "fn_use_amount": false
+      },
+      "threshold": 0.015015015015015015,
+      "cost": 6740.0,
+      "cost_approve_all": 32900.0,
+      "cost_block_all": 110488.0,
+      "savings_vs_approve_all_pct": 79.51367781155015
+    },
+    "valor_transacao": {
+      "cost_config": {
+        "fn": 25.0,
+        "fp": 5.0,
+        "fn_use_amount": true
+      },
+      "threshold": 2.905625290562529e-05,
+      "cost": 493120.0,
+      "cost_approve_all": 475453302.21000004,
+      "cost_block_all": 552440.0,
+      "savings_vs_approve_all_pct": 99.89628424122667
+    }
+  },
+  "latency": {
+    "latency_mean_ms": 2.8003423303986588,
+    "latency_p50_ms": 2.7758500073105097,
+    "latency_p95_ms": 2.910834987415001,
+    "latency_p99_ms": 3.027847990742883,
+    "batch_throughput_tps": 853825.1361155733
+  },
+  "versions": {
+    "python": "3.12.10",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.5.2",
+    "imbalanced-learn": "0.12.4",
+    "xgboost": "2.1.3",
+    "lightgbm": "4.5.0",
+    "shap": "0.46.0"
+  },
+  "seed": 42,
+  "created_at": "2026-10-18T22:57:15.507009+00:00"
+}
